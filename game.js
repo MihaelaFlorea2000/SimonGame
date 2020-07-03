@@ -65,16 +65,18 @@ function nextSequence() {
  * Record the color the user has clicked on
  */
 $(".btn").on("click", function() {
-    // Save btn color
-    var userColor = $(this).attr("id");
-    userPattern.push(userColor);
 
-    playSound(userColor);
+    if (gameStarted) {
+        // Save btn color
+        var userColor = $(this).attr("id");
+        userPattern.push(userColor);
 
-    animatePress(this);
+        playSound(userColor);
 
-    checkAnswer(userPattern.length - 1);
+        animatePress(this);
 
+        checkAnswer(userPattern.length - 1);
+    }
 });
 
 /**
